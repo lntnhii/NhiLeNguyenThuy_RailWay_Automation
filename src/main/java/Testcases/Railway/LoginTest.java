@@ -59,12 +59,9 @@ public class LoginTest {
 
         LoginPage loginPage = homePage.gotoLoginPage();
 
-        String actualMsg = loginPage.login("", Constant.PASSWORD).getWelcomeUser();
-        String expectedMsg = "Welcome ttttttttttt haahahaha" + Constant.USERNAME;
+        String actualMsg = ((LoginPage)loginPage.login("", Constant.PASSWORD)).getLoginErrorMessage();
+        String expectedMsg = "There was a problem with your login and/or errors exist in your form.";
 
-        Assert.assertEquals(actualMsg, expectedMsg, "Welcome is not displayed as expected");
-
-        GeneralPage generalPage = new GeneralPage();
-        generalPage.logout();
+        Assert.assertEquals(actualMsg, expectedMsg, "Message is not displayed as expected");
     }
 }
