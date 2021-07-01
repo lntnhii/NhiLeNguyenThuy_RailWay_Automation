@@ -18,8 +18,7 @@ public class LoginTest {
     public void beforeMethod() {
         System.out.println("Pre-conditions");
 
-        System.setProperty("webdriver.chrome.driver",
-                            "Executables/chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", Utilities.getProjectPath());
         Constant.WEBDRIVER = new ChromeDriver();
         //Constant.WEBDRIVER.manage().window().maximize();
     }
@@ -27,9 +26,6 @@ public class LoginTest {
     @AfterMethod
     public void afterMethod() {
         System.out.println("Post-confition");
-
-        //GeneralPage generalPage = new GeneralPage();
-        //generalPage.logout();
 
         Constant.WEBDRIVER.quit();
     }

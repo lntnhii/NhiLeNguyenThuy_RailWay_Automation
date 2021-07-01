@@ -12,7 +12,7 @@ public class LoginPage extends GeneralPage {
     private final By _btnLogin = By.xpath("//input[@value='Login']");
     private final By _lblLoginErrorMsg = By.xpath("//p[@class='message error LoginForm']");
     private final By _selectedLogin = By.xpath("//li[@class='selected']//a[contains(.,'Login')]");
-
+//tabselectedlogin
     //Elements
     public WebElement getTxtUsername() {
         return Constant.WEBDRIVER.findElement(_txtUsername);
@@ -43,6 +43,9 @@ public class LoginPage extends GeneralPage {
         this.getTxtUsername().sendKeys(username);
         this.getTxtPassword().sendKeys(password);
         this.getBtnLogin().click();
+//        boolean isPresent = Constant.WEBDRIVER.findElement(_selectedLogin).isDisplayed();
+//        if (isPresent)
+//            return new LoginPage();
         if (isElementPresent(_selectedLogin)) {
             return new LoginPage();
         }
