@@ -10,7 +10,6 @@ public class LoginPage extends GeneralPage {
     private final By _txtPassword = By.id("password");
     private final By _btnLogin = By.xpath("//input[@value='Login']");
     private final By _lblLoginErrorMsg = By.xpath("//p[@class='message error LoginForm']");
-    private final By _tabSelectedLogin = By.xpath("//li[@class='selected']/a[contains(.,'Login')]");
 
     //Elements
     public WebElement getTxtUsername() {
@@ -29,10 +28,6 @@ public class LoginPage extends GeneralPage {
         return Constant.WEBDRIVER.findElement(_lblLoginErrorMsg);
     }
 
-    public WebElement getTabSelectedLogin() {
-        return Constant.WEBDRIVER.findElement(_tabSelectedLogin);
-    }
-
     //Methods
     public String getLoginErrorMessage() {
         return getLblLoginErrorMsg().getText();
@@ -44,11 +39,13 @@ public class LoginPage extends GeneralPage {
         this.getBtnLogin().click();
     }
 
-    public boolean isLoginOpen() {
-        if (isElementExists(_tabSelectedLogin)) {
-            return true;
+    public void loginSeveralTimes(String username, String password, int times) {
+        for (int i=0; i<times; i++) {
+            login(username, password);
         }
-        else
-            return false;
+    }
+
+    public boolean isLoginOpen() {
+        return Constant.WEBDRIVER.getTitle().contains("Login");
     }
 }

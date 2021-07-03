@@ -1,6 +1,6 @@
 package PageObjects.Railway;
 
-import Common.Constant.Constant;
+import Common.WebDriverManager.WebDriverManager;
 
 public class HomePage extends GeneralPage {
     //Locators
@@ -9,7 +9,7 @@ public class HomePage extends GeneralPage {
 
     //Methods
     public HomePage open() {
-        Constant.WEBDRIVER.navigate().to(Constant.RAILWAY_URL);
+        WebDriverManager.getInstance().navigate();
         return this;
     }
 }

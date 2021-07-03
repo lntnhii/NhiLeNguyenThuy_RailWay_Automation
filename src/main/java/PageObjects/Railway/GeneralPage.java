@@ -1,7 +1,7 @@
 package PageObjects.Railway;
 
+import Common.Common.Utilities;
 import Common.Constant.Constant;
-import com.google.common.base.Verify;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
@@ -39,14 +39,11 @@ public class GeneralPage {
     }
 
     public void logout() {
-        this.getTabLogout().click();
+        if (Utilities.isElementExists(tabLogout))
+            this.getTabLogout().click();
     }
 
     public void gotoBookTicketPage() {
         this.getTabBookTicket().click();
-    }
-
-    public static boolean isElementExists(By locator) {
-        return Constant.WEBDRIVER.findElement(locator).isDisplayed();
     }
 }

@@ -1,10 +1,20 @@
 package Common.Common;
 
-import java.io.File;
-import java.io.IOException;
+import Common.Constant.Constant;
+import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 
 public class Utilities {
     public static String getProjectPath() {
-        return "Executables/chromedriver.exe";
+        return "src/main/resources/Webdriver/chromedriver.exe";
+    }
+
+    public static boolean isElementExists(By locator) {
+        try {
+            return Constant.WEBDRIVER.findElement(locator).isDisplayed();
+        }
+        catch (NoSuchElementException ex){
+            return false;
+        }
     }
 }
