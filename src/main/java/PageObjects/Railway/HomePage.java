@@ -12,4 +12,6 @@ public class HomePage extends GeneralPage {
         WebDriverManager.getInstance().navigate();
         return this;
     }
+
+    //Methods support checkpoint
 }

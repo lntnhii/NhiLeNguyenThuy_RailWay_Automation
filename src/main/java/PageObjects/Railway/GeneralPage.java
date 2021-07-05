@@ -10,7 +10,9 @@ public class GeneralPage {
     private final By tabLogin = By.linkText("Login");
     private final By tabLogout = By.linkText("Log out");
     private final By tabBookTicket = By.linkText("Book ticket");
-    private final By lblWelcomeUser = By.xpath("//div[@class='account']/strong");
+    private final By tabContact = By.linkText("Contact");
+    private final By tabRegister = By.linkText("Register");
+    private final By lblWelcomeUser = By.xpath("//div[@class='account']//strong");
 
     //Elements
     protected WebElement getTabLogin() {
@@ -23,6 +25,14 @@ public class GeneralPage {
 
     protected WebElement getTabBookTicket() {
         return Constant.WEBDRIVER.findElement(tabBookTicket);
+    }
+
+    protected WebElement getTabContact() {
+        return Constant.WEBDRIVER.findElement(tabContact);
+    }
+
+    protected WebElement getTabRegister() {
+        return Constant.WEBDRIVER.findElement(tabRegister);
     }
 
     protected WebElement getLblWelcomeUser() {
@@ -45,5 +55,18 @@ public class GeneralPage {
 
     public void gotoBookTicketPage() {
         this.getTabBookTicket().click();
+    }
+
+    public void gotoContactPage() {
+        this.getTabContact().click();
+    }
+
+    public void gotoRegisterPage() {
+        this.getTabRegister().click();
+    }
+
+    //Methods support checkpoint
+    public boolean isLogoutTabDisplayed() {
+        return Utilities.isElementExists(tabLogout);
     }
 }
