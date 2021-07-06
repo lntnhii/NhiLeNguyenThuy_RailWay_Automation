@@ -13,6 +13,7 @@ public class Constant {
 
     public static final String DATA_INVALID_PASSWORD = "ahihidongoc";
     public static final String DATA_EMPTY_USERNAME = "";
+    public static final int DATA_LOGIN_TIMES = 4;
 
     public static String MSG_WELCOME_USER = "Welcome %s";
     public static final String MSG_INVALID_USERNAME_PASSWORD = "Invalid username or password. Please try again.";
@@ -25,5 +26,18 @@ public class Constant {
     public static final String DATA_REGISTER_CONFIRM_PASSWORD = "123456789";
     public static final String DATA_REGISTER_PID = "123456789";
 
+    public static final String DATA_EMPTY_PASSWORD = "";
+    public static final String DATA_EMPTY_CONFIRM_PASSWORD = "";
+    public static final String DATA_EMPTY_PID = "";
+
     public static final String MSG_THANK_YOU_REGISTER = "Thank you for registering your account";
+    public static final String MSG_IN_USED_EMAIL = "This email address is already in use.";
+    public static final String MSG_CONFIRM_PASSWORD_ERROR = "The password confirmation does not match the new password.";
+    public static final String MSG_REGISTER_ERROR = "There're errors in the form. Please correct the errors and try again.";
+    public static final String MSG_PASSWORD_ERROR = "Invalid password length";
+    public static final String MSG_PID_ERROR = "Invalid ID length";
+
+    //Change password
+    public static final String DATA_NEW_PASSWORD = "a123:\"/{}!@$\\";
+    public static final String DATA_CONFIRM_PASSWORD = "b456:\"/{}!@$\\";
 }

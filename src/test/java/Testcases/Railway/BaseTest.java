@@ -15,7 +15,7 @@ public class BaseTest {
     @BeforeClass
     public void beforeClass() {
         System.setProperty("webdriver.chrome.driver", Utilities.getProjectPath());
-        WebDriverManager.getInstance().maximize();
+        Constant.WEBDRIVER.maximize();
     }
 
     @AfterClass

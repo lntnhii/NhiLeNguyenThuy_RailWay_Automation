@@ -52,7 +52,7 @@ public class LoginTest extends BaseTest {
 
     @Test(description = "TC05 - System shows message when user enters wrong password several times")
     public void TC05() {
-        loginPage.loginSeveralTimes(Constant.USERNAME, Constant.DATA_INVALID_PASSWORD, 4);
+        loginPage.loginSeveralTimes(Constant.USERNAME, Constant.DATA_INVALID_PASSWORD, Constant.DATA_LOGIN_TIMES);
 
         String actualMsg = loginPage.getLoginErrorMessage();
         String expectedMsg = Constant.MSG_RUN_OUT_OF_TRY_LOGIN;

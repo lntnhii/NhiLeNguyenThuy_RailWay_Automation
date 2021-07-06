@@ -12,7 +12,10 @@ public class RegisterPage extends GeneralPage {
     private final By txtConfirmPassword = By.id("confirmPassword");
     private final By txtPID = By.id("pid");
     private final By btnRegister = By.xpath("//input[@value='Register']");
-    private final By lblRegisterMessage = By.xpath("//div[@id='content']//p");
+    private final By lblRegisterMsg = By.xpath("//div[@id='content']//p");
+    private final By lblRegisterErrorMsg = By.xpath("//p[@class='message error']");
+    private final By lblPasswordErrorMsg = By.xpath("//label[@for='password' and @class='validation-error']");
+    private final By lblPidErrorMsg = By.xpath("//label[@for='pid' and @class='validation-error']");
 
     //Elements
     public WebElement getTxtEmail() {
@@ -35,23 +38,47 @@ public class RegisterPage extends GeneralPage {
         return Constant.WEBDRIVER.findElement(btnRegister);
     }
 
-    public WebElement getLblRegisterMessage() {
-        return Constant.WEBDRIVER.findElement(lblRegisterMessage);
+    public WebElement getLblRegisterMsg() {
+        return Constant.WEBDRIVER.findElement(lblRegisterMsg);
+    }
+
+    public WebElement getLblRegisterErrorMsg() {
+        return Constant.WEBDRIVER.findElement(lblRegisterErrorMsg);
+    }
+
+    public WebElement getLblPasswordErrorMsg() {
+        return Constant.WEBDRIVER.findElement(lblPasswordErrorMsg);
+    }
+
+    public WebElement getLblPidErrorMsg() {
+        return Constant.WEBDRIVER.findElement(lblPidErrorMsg);
     }
 
     //Methods
     public void register(String email, String password, String confirmPassword, String pid) {
-        Utilities.pageDownEnd();
-
         this.getTxtEmail().sendKeys(email);
         this.getTxtPassword().sendKeys(password);
         this.getTxtConfirmPassword().sendKeys(confirmPassword);
         this.getTxtPID().sendKeys(pid);
+
+        Constant.WEBDRIVER.scrollIntoView(getBtnRegister());
         this.getBtnRegister().click();
     }
 
-    public String getRegisterMessage() {
-        return this.getLblRegisterMessage().getText();
+    public String getRegisterMsg() {
+        return this.getLblRegisterMsg().getText();
+    }
+
+    public String getRegisterErrorMsg() {
+        return this.getLblRegisterErrorMsg().getText();
+    }
+
+    public String getPasswordErrorMsg() {
+        return this.getLblPasswordErrorMsg().getText();
+    }
+
+    public String getPidErrorMsg() {
+        return this.getLblPidErrorMsg().getText();
     }
 
     //Methods support checkpoint

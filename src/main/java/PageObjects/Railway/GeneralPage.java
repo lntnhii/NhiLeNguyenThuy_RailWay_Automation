@@ -12,6 +12,7 @@ public class GeneralPage {
     private final By tabBookTicket = By.linkText("Book ticket");
     private final By tabContact = By.linkText("Contact");
     private final By tabRegister = By.linkText("Register");
+    private final By tabChangePassword = By.linkText("Change password");
     private final By lblWelcomeUser = By.xpath("//div[@class='account']//strong");
 
     //Elements
@@ -33,6 +34,10 @@ public class GeneralPage {
 
     protected WebElement getTabRegister() {
         return Constant.WEBDRIVER.findElement(tabRegister);
+    }
+
+    protected WebElement getTabChangePassword() {
+        return Constant.WEBDRIVER.findElement(tabChangePassword);
     }
 
     protected WebElement getLblWelcomeUser() {
@@ -63,6 +68,10 @@ public class GeneralPage {
 
     public void gotoRegisterPage() {
         this.getTabRegister().click();
+    }
+
+    public void gotoChangePasswordPage() {
+        this.getTabChangePassword().click();
     }
 
     //Methods support checkpoint

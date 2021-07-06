@@ -10,13 +10,10 @@ import org.testng.annotations.Test;
 public class LogoutTest extends BaseTest {
     GeneralPage generalPage = new GeneralPage();
 
-    @BeforeMethod
-    public void beforeMethod() {
-        homePage.open();
-    }
-
     @Test(description = "TC06 - User is redirected to Home page after logging out")
     public void TC06() {
+        homePage.open();
+
         homePage.gotoLoginPage();
         loginPage.login(Constant.USERNAME, Constant.PASSWORD);
 

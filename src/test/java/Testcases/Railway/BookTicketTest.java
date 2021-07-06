@@ -11,24 +11,18 @@ import org.testng.annotations.Test;
 public class BookTicketTest extends BaseTest {
     BookTicketPage bookTicketPage = new BookTicketPage();
 
-    @BeforeMethod
-    public void beforeMethod() {
-        homePage.open();
-        homePage.gotoBookTicketPage();
-    }
-
-    @AfterMethod
-    public void afterMethod() {
-        homePage.logout();
-    }
-
     @Test(description = "TC04 - User is redirected to Book ticket page after logging in")
     public void TC04() {
+        homePage.open();
+        homePage.gotoBookTicketPage();
+
         Assert.assertTrue(Utilities.isPageOpened("Login"),"Login page is not displayed");
 
         loginPage.login(Constant.USERNAME, Constant.PASSWORD);
 
         Assert.assertTrue(Utilities.isPageOpened("Book Ticket"), "Book ticket page is not displayed");
         Assert.assertTrue(bookTicketPage.isBookTicketFormDisplayed(),"Book ticket form is not displayed correctly");
+
+        homePage.logout();
     }
 }

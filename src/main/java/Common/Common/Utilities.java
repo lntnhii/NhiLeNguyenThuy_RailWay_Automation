@@ -1,9 +1,7 @@
 package Common.Common;
 
 import Common.Constant.Constant;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.*;
 
 import java.util.Random;
 
@@ -25,10 +23,6 @@ public class Utilities {
             sb.append(ch);
         }
         return sb.toString();
-    }
-
-    public static void pageDownEnd() {
-        Constant.WEBDRIVER.findElement(By.cssSelector("body")).sendKeys(Keys.CONTROL, Keys.END);
     }
 
     // General functions

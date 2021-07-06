@@ -1,8 +1,7 @@
 package Common.WebDriverManager;
 
 import Common.Constant.Constant;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class WebDriverManager {
@@ -28,7 +27,13 @@ public class WebDriverManager {
     }
 
     public WebElement findElement(By locator) {
-        return driver.findElement(locator);
+        try {
+            return driver.findElement(locator);
+        } catch (NoSuchElementException ex) {
+            return null;
+        } catch (StaleElementReferenceException ex) {
+            return null;
+        }
     }
 
     public void quit() {
@@ -37,5 +42,10 @@ public class WebDriverManager {
 
     public String getTitle() {
         return driver.getTitle();
+    }
+
+    public void scrollIntoView(WebElement element) {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].scrollIntoView(true);", element);
     }
 }

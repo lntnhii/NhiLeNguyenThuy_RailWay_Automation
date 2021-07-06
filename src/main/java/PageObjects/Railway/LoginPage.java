@@ -10,6 +10,7 @@ public class LoginPage extends GeneralPage {
     private final By txtPassword = By.id("password");
     private final By btnLogin = By.xpath("//input[@value='Login']");
     private final By lblLoginErrorMsg = By.xpath("//p[@class='message error LoginForm']");
+    private final By linkForgotPassword = By.xpath("//a[contains(.,'Forgot Password')]");
 
     //Elements
     public WebElement getTxtUsername() {
@@ -28,6 +29,10 @@ public class LoginPage extends GeneralPage {
         return Constant.WEBDRIVER.findElement(lblLoginErrorMsg);
     }
 
+    public WebElement getLinkForgotPassword() {
+        return Constant.WEBDRIVER.findElement(linkForgotPassword);
+    }
+
     //Methods
     public String getLoginErrorMessage() {
         return getLblLoginErrorMsg().getText();
@@ -43,6 +48,10 @@ public class LoginPage extends GeneralPage {
         for (int i=0; i<times; i++) {
             login(username, password);
         }
+    }
+
+    public void gotoForgetPasswordPage() {
+        this.getLinkForgotPassword().click();
     }
 
     //Methods support checkpoint
