@@ -4,8 +4,15 @@ import Common.Common.Utilities;
 import Common.WebDriverManager.WebDriverManager;
 
 public class Constant {
-    public static WebDriverManager WEBDRIVER = WebDriverManager.getInstance();
+    public static WebDriverManager WEBDRIVER;
     public static final String RAILWAY_URL = "http://www.railway2.somee.com/";
+
+    //Title
+    public static final String LOGIN = "Login";
+    public static final String BOOK_TICKET = "Book Ticket";
+    public static final String HOME = "Home";
+    public static final String REGISTRATION_CONFIRM = "Registration Confirmation Page";
+    public static final String SERVER_ERROR_MAILBOX = "Mailbox unavailable";
 
     //Login
     public static final String USERNAME = "lntnhii@gmail.com";
@@ -21,7 +28,7 @@ public class Constant {
     public static final String MSG_PROBLEM_USERNAME_PASSWORD = "There was a problem with your login and/or errors exist in your form.";
 
     //Register
-    public static final String DATA_REGISTER_EMAIL = "lntnhii+" + Utilities.randomString() + "@gmail.com";
+    public static final String DATA_REGISTER_EMAIL = "lntnhii+%s@gmail.com";
     public static final String DATA_REGISTER_PASSWORD = "123456789";
     public static final String DATA_REGISTER_CONFIRM_PASSWORD = "123456789";
     public static final String DATA_REGISTER_PID = "123456789";

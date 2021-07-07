@@ -18,12 +18,12 @@ public class RegisterTest extends BaseTest {
 
     @Test(description = "TC07 - User can log into Railway with valid username and password")
     public void TC07() {
-        registerPage.register(Constant.DATA_REGISTER_EMAIL
+        registerPage.register(String.format(Constant.DATA_REGISTER_EMAIL, Utilities.randomString())
                 , Constant.DATA_REGISTER_PASSWORD
                 , Constant.DATA_REGISTER_CONFIRM_PASSWORD
                 , Constant.DATA_REGISTER_PID);
 
-        Assert.assertTrue(Utilities.isPageOpened("Registration Confirmation Page"), "Register failed");
+        Assert.assertTrue(Utilities.isPageOpened(Constant.REGISTRATION_CONFIRM), "Register failed");
 
         String actualMsg = registerPage.getRegisterMsg();
         String expectedMsg = Constant.MSG_THANK_YOU_REGISTER;
@@ -32,7 +32,7 @@ public class RegisterTest extends BaseTest {
 
     @Test(description = "TC10 - User can't create account with an already in-use email")
     public void TC10() {
-        String newEmail = Constant.DATA_REGISTER_EMAIL;
+        String newEmail = String.format(Constant.DATA_REGISTER_EMAIL, Utilities.randomString());
         registerPage.register(newEmail
                 , Constant.DATA_REGISTER_PASSWORD
                 , Constant.DATA_REGISTER_CONFIRM_PASSWORD
@@ -51,7 +51,7 @@ public class RegisterTest extends BaseTest {
 
     @Test(description = "TC11 - User can't create account while password and PID fields are empty")
     public void TC11() {
-        registerPage.register(Constant.DATA_REGISTER_EMAIL
+        registerPage.register(String.format(Constant.DATA_REGISTER_EMAIL, Utilities.randomString())
                 , Constant.DATA_EMPTY_PASSWORD
                 , Constant.DATA_EMPTY_CONFIRM_PASSWORD
                 , Constant.DATA_EMPTY_PID);
@@ -66,6 +66,6 @@ public class RegisterTest extends BaseTest {
 
         String actualPidMsg = registerPage.getPidErrorMsg();
         String expectedPidMsg = Constant.MSG_PID_ERROR;
-        Assert.assertEquals(actualRegisterMsg,expectedRegisterMsg,"Pid error message is not displayed correctly.");
+        Assert.assertEquals(actualPidMsg,expectedPidMsg,"Pid error message is not displayed correctly.");
     }
 }

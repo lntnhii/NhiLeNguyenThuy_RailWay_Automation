@@ -41,6 +41,8 @@ public class LoginPage extends GeneralPage {
     public void login(String username, String password) {
         this.getTxtUsername().sendKeys(username);
         this.getTxtPassword().sendKeys(password);
+
+        Constant.WEBDRIVER.scrollIntoView(getBtnLogin());
         this.getBtnLogin().click();
     }
 

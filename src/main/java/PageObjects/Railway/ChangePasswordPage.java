@@ -44,4 +44,6 @@ public class ChangePasswordPage extends GeneralPage {
         this.getTxtConfirmPassword().sendKeys(confirmPassword);
         this.getBtnChangePassword().click();
     }
+
+    //Methods support checkpoint
 }

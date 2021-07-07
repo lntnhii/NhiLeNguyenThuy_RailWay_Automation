@@ -2,6 +2,7 @@ package Common.Common;
 
 import Common.Constant.Constant;
 import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.InvalidCoordinatesException;
 
 import java.util.Random;
 
@@ -25,18 +26,18 @@ public class Utilities {
         return sb.toString();
     }
 
-    // General functions
-    public static boolean isElementExists(By locator) {
+    public static boolean isElementExist(WebElement element) {
         try {
-            return Constant.WEBDRIVER.findElement(locator).isDisplayed();
+            boolean res = element.isDisplayed();
+            return res;
         }
-        catch (NoSuchElementException ex){
+        catch (NullPointerException ex){
             return false;
         }
     }
 
     public static boolean isPageOpened(String pageName) {
-        if (pageName.equals("Home")) {
+        if (pageName.equals(Constant.HOME)) {
             By lblWelcome = By.cssSelector("h1");
             String getLblWelcome = Constant.WEBDRIVER.findElement(lblWelcome).getText();
             return getLblWelcome.contains("Welcome to Safe Railway");

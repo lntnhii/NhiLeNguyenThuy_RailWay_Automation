@@ -27,17 +27,20 @@ public class WebDriverManager {
     }
 
     public WebElement findElement(By locator) {
+        WebElement element = null;
         try {
-            return driver.findElement(locator);
+            element = driver.findElement(locator);
         } catch (NoSuchElementException ex) {
-            return null;
+            System.out.println(ex.getMessage());
         } catch (StaleElementReferenceException ex) {
-            return null;
+            System.out.println(ex.getMessage());
         }
+        return element;
     }
 
     public void quit() {
         driver.quit();
+        instance = null;
     }
 
     public String getTitle() {

@@ -63,7 +63,7 @@ public class LoginTest extends BaseTest {
     @Test(description = "TC08 - User can't login with an account hasn't been activated")
     public void TC08() {
         loginPage.gotoRegisterPage();
-        String newEmail = Constant.DATA_REGISTER_EMAIL;
+        String newEmail = String.format(Constant.DATA_REGISTER_EMAIL, Utilities.randomString());
 
         RegisterPage registerPage = new RegisterPage();
         registerPage.register(newEmail
@@ -75,7 +75,7 @@ public class LoginTest extends BaseTest {
 
         loginPage.login(newEmail, Constant.DATA_REGISTER_PASSWORD);
 
-        Assert.assertTrue(Utilities.isPageOpened("Login"), "User can still login with unactivated account");
+        Assert.assertTrue(Utilities.isPageOpened(Constant.LOGIN), "User can still login with unactivated account");
 
         String actualMsg = loginPage.getLoginErrorMessage();
         String expectedMsg = Constant.MSG_INVALID_USERNAME_PASSWORD;

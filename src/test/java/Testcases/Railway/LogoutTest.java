@@ -21,7 +21,7 @@ public class LogoutTest extends BaseTest {
 
         homePage.logout();
 
-        Assert.assertTrue(Utilities.isPageOpened("Home"));
+        Assert.assertTrue(Utilities.isPageOpened(Constant.HOME));
         Assert.assertTrue(!generalPage.isLogoutTabDisplayed(), "Log out tab is not disappeared");
     }
 }

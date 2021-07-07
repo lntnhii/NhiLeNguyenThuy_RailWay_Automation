@@ -54,7 +54,8 @@ public class GeneralPage {
     }
 
     public void logout() {
-        if (Utilities.isElementExists(tabLogout))
+        //if (Utilities.isElementExist(tabLogout))
+        if (Utilities.isElementExist(getTabLogout()))
             this.getTabLogout().click();
     }
 
@@ -76,6 +77,7 @@ public class GeneralPage {
 
     //Methods support checkpoint
     public boolean isLogoutTabDisplayed() {
-        return Utilities.isElementExists(tabLogout);
+        //return Utilities.isElementExist(tabLogout);
+        return Utilities.isElementExist(getTabLogout());
     }
 }
