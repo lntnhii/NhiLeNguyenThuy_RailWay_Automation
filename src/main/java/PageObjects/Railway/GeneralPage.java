@@ -13,6 +13,7 @@ public class GeneralPage {
     private final By tabContact = By.linkText("Contact");
     private final By tabRegister = By.linkText("Register");
     private final By tabChangePassword = By.linkText("Change password");
+    private final By tabTimeTable = By.linkText("Timetable");
     private final By lblWelcomeUser = By.xpath("//div[@class='account']//strong");
 
     //Elements
@@ -40,6 +41,10 @@ public class GeneralPage {
         return Constant.WEBDRIVER.findElement(tabChangePassword);
     }
 
+    protected WebElement getTabTimetable() {
+        return Constant.WEBDRIVER.findElement(tabTimeTable);
+    }
+
     protected WebElement getLblWelcomeUser() {
         return Constant.WEBDRIVER.findElement(lblWelcomeUser);
     }
@@ -54,8 +59,7 @@ public class GeneralPage {
     }
 
     public void logout() {
-        //if (Utilities.isElementExist(tabLogout))
-        if (Utilities.isElementExist(getTabLogout()))
+        if (Utilities.isElementDisplayed(getTabLogout()))
             this.getTabLogout().click();
     }
 
@@ -75,9 +79,12 @@ public class GeneralPage {
         this.getTabChangePassword().click();
     }
 
+    public void gotoTimetablePage() {
+        this.getTabTimetable().click();
+    }
+
     //Methods support checkpoint
     public boolean isLogoutTabDisplayed() {
-        //return Utilities.isElementExist(tabLogout);
-        return Utilities.isElementExist(getTabLogout());
+        return Utilities.isElementDisplayed(getTabLogout());
     }
 }

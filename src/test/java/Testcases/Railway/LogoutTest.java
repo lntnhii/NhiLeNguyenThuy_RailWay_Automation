@@ -4,7 +4,6 @@ import Common.Common.Utilities;
 import Common.Constant.Constant;
 import PageObjects.Railway.GeneralPage;
 import org.testng.Assert;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class LogoutTest extends BaseTest {

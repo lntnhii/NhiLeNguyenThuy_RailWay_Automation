@@ -1,8 +1,9 @@
 package Common.Common;
 
 import Common.Constant.Constant;
-import org.openqa.selenium.*;
-import org.openqa.selenium.interactions.InvalidCoordinatesException;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 
 import java.util.Random;
 
@@ -26,7 +27,7 @@ public class Utilities {
         return sb.toString();
     }
 
-    public static boolean isElementExist(WebElement element) {
+    public static boolean isElementDisplayed(WebElement element) {
         try {
             boolean res = element.isDisplayed();
             return res;
@@ -40,8 +41,17 @@ public class Utilities {
         if (pageName.equals(Constant.HOME)) {
             By lblWelcome = By.cssSelector("h1");
             String getLblWelcome = Constant.WEBDRIVER.findElement(lblWelcome).getText();
-            return getLblWelcome.contains("Welcome to Safe Railway");
+            return getLblWelcome.equals("Welcome to Safe Railway");
         }
         return Constant.WEBDRIVER.getTitle().contains(pageName);
+    }
+
+    public static String randomEmail() {
+        return "lntnhii" + randomString() + "@gmail.com";
+    }
+
+    public static void selectCombobox(WebElement element, String valueText) {
+        Select combobox = new Select(element);
+        combobox.selectByVisibleText(valueText);
     }
 }

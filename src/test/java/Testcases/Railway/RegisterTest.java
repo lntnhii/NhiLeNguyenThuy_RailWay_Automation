@@ -18,7 +18,7 @@ public class RegisterTest extends BaseTest {
 
     @Test(description = "TC07 - User can log into Railway with valid username and password")
     public void TC07() {
-        registerPage.register(String.format(Constant.DATA_REGISTER_EMAIL, Utilities.randomString())
+        registerPage.register(Utilities.randomEmail()
                 , Constant.DATA_REGISTER_PASSWORD
                 , Constant.DATA_REGISTER_CONFIRM_PASSWORD
                 , Constant.DATA_REGISTER_PID);
@@ -32,7 +32,7 @@ public class RegisterTest extends BaseTest {
 
     @Test(description = "TC10 - User can't create account with an already in-use email")
     public void TC10() {
-        String newEmail = String.format(Constant.DATA_REGISTER_EMAIL, Utilities.randomString());
+        String newEmail = Utilities.randomEmail();
         registerPage.register(newEmail
                 , Constant.DATA_REGISTER_PASSWORD
                 , Constant.DATA_REGISTER_CONFIRM_PASSWORD
@@ -51,7 +51,7 @@ public class RegisterTest extends BaseTest {
 
     @Test(description = "TC11 - User can't create account while password and PID fields are empty")
     public void TC11() {
-        registerPage.register(String.format(Constant.DATA_REGISTER_EMAIL, Utilities.randomString())
+        registerPage.register(Utilities.randomEmail()
                 , Constant.DATA_EMPTY_PASSWORD
                 , Constant.DATA_EMPTY_CONFIRM_PASSWORD
                 , Constant.DATA_EMPTY_PID);

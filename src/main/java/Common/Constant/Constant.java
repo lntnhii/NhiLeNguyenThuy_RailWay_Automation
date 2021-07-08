@@ -1,6 +1,5 @@
 package Common.Constant;
 
-import Common.Common.Utilities;
 import Common.WebDriverManager.WebDriverManager;
 
 public class Constant {
@@ -13,6 +12,7 @@ public class Constant {
     public static final String HOME = "Home";
     public static final String REGISTRATION_CONFIRM = "Registration Confirmation Page";
     public static final String SERVER_ERROR_MAILBOX = "Mailbox unavailable";
+    public static final String TICKET_PRICE = "Ticket Price";
 
     //Login
     public static final String USERNAME = "lntnhii@gmail.com";
@@ -28,7 +28,6 @@ public class Constant {
     public static final String MSG_PROBLEM_USERNAME_PASSWORD = "There was a problem with your login and/or errors exist in your form.";
 
     //Register
-    public static final String DATA_REGISTER_EMAIL = "lntnhii+%s@gmail.com";
     public static final String DATA_REGISTER_PASSWORD = "123456789";
     public static final String DATA_REGISTER_CONFIRM_PASSWORD = "123456789";
     public static final String DATA_REGISTER_PID = "123456789";
@@ -47,4 +46,25 @@ public class Constant {
     //Change password
     public static final String DATA_NEW_PASSWORD = "a123:\"/{}!@$\\";
     public static final String DATA_CONFIRM_PASSWORD = "b456:\"/{}!@$\\";
+
+    //Book ticket
+    public static final int DATA_NUMBER_OF_DAYS_AFTER = 5;
+    public static final String DATA_DEPART_FROM = "Sài Gòn";
+    public static final String DATA_ARRIVE_AT = "Nha Trang";
+    public static final String DATA_SEAT_TYPE = "Soft bed with air conditioner";
+    public static final String DATA_TICKET_AMOUNT = "1";
+    public static final String MSG_BOOKED_SUCCESSFULLY = "Ticket Booked Successfully!";
+
+    //Timetable
+    public static final String DATA_TIMETABLE_DEPART_FROM = "Đà Nẵng";
+    public static final String DATA_TIMETABLE_ARRIVE_AT = "Sài Gòn";
+
+    //Ticket price
+    public static final String DATA_HEADER_TICKET_PRICE = "Ticket price from Đà Nẵng to Sài Gòn";
+    public static final String DATA_HS_PRICE = "310000";
+    public static final String DATA_SS_PRICE = "335000";
+    public static final String DATA_SSC_PRICE = "360000";
+    public static final String DATA_HB_PRICE = "410000";
+    public static final String DATA_SB_PRICE = "460000";
+    public static final String DATA_SBC_PRICE = "510000";
 }

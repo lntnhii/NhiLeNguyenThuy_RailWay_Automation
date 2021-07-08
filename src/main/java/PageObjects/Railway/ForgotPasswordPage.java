@@ -32,6 +32,6 @@ public class ForgotPasswordPage extends GeneralPage {
 
     //Methods support checkpoint
     public boolean isChangePasswordFormDisplayed() {
-        return Utilities.isElementExist(getFrmChangePassword());
+        return Utilities.isElementDisplayed(getFrmChangePassword());
     }
 }

@@ -38,27 +38,6 @@
             <scope>test</scope>
         </dependency>
 
-        <!--<dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.11</version>
-            <scope>test</scope>
-        </dependency>-->
-
-        <!-- https://mvnrepository.com/artifact/com.google.inject/guice -->
-        <!--<dependency>
-            <groupId>com.google.inject</groupId>
-            <artifactId>guice</artifactId>
-            <version>5.0.1</version>
-        </dependency>-->
-
-        <!-- https://mvnrepository.com/artifact/velocity/velocity-dep -->
-        <!--<dependency>
-            <groupId>velocity</groupId>
-            <artifactId>velocity-dep</artifactId>
-            <version>1.4</version>
-        </dependency>-->
-
     </dependencies>
 
     <build>
@@ -68,19 +47,6 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.0.0-M4</version>
                 <configuration>
-                    <!--<testFailureIgnore>true</testFailureIgnore>-->
-                    <!--<properties>
-                        <property>
-                        <name>usedefaultlisteners</name>
-                        <value>false</value>
-                        </property>
-                        <property>
-                            <name>listener</name>
-                            <value>org.uncommons.reportng.HTMLReporter,
-                                org.uncommons.reportng.JUnitXMLReporter
-                            </value>
-                        </property>
-                    </properties>-->
                 </configuration>
             </plugin>
 
@@ -91,21 +57,6 @@
             </plugin>
         </plugins>
     </build>
-
-    <!--<repositories>
-        <repository>
-            <id>java-net</id>
-            <url>http://download.java.net/maven/2</url>
-        </repository>
-    </repositories>-->
-
-    <!--<licenses>
-        <license>
-            <name>Apache License, Version 2.0</name>
-            <url>http://www.apache.org/licenses/LICENSE-2.0.html</url>
-            <distribution>repo</distribution>
-        </license>
-    </licenses>-->
 
     <reporting>
         <plugins>

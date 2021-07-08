@@ -63,7 +63,7 @@ public class LoginTest extends BaseTest {
     @Test(description = "TC08 - User can't login with an account hasn't been activated")
     public void TC08() {
         loginPage.gotoRegisterPage();
-        String newEmail = String.format(Constant.DATA_REGISTER_EMAIL, Utilities.randomString());
+        String newEmail = Utilities.randomEmail();
 
         RegisterPage registerPage = new RegisterPage();
         registerPage.register(newEmail
