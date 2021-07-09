@@ -67,4 +67,8 @@ public class Constant {
     public static final String DATA_HB_PRICE = "410000";
     public static final String DATA_SB_PRICE = "460000";
     public static final String DATA_SBC_PRICE = "510000";
+
+    //My ticket
+    public static final String DATA_CANCEL_ROW = "1";
+    public static String DATA_CANCEL_ID;
 }

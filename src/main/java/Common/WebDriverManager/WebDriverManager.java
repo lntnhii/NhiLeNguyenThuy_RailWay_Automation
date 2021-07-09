@@ -51,4 +51,8 @@ public class WebDriverManager {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("arguments[0].scrollIntoView(true);", element);
     }
+
+    public Alert switchToAlert() {
+        return driver.switchTo().alert();
+    }
 }

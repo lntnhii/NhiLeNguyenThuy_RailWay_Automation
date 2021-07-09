@@ -27,6 +27,10 @@ public class Utilities {
         return sb.toString();
     }
 
+    public static String randomEmail() {
+        return "lntnhii" + randomString() + "@gmail.com";
+    }
+
     public static boolean isElementDisplayed(WebElement element) {
         try {
             boolean res = element.isDisplayed();
@@ -46,12 +50,12 @@ public class Utilities {
         return Constant.WEBDRIVER.getTitle().contains(pageName);
     }
 
-    public static String randomEmail() {
-        return "lntnhii" + randomString() + "@gmail.com";
-    }
-
     public static void selectCombobox(WebElement element, String valueText) {
         Select combobox = new Select(element);
         combobox.selectByVisibleText(valueText);
+    }
+
+    public static void confirmPopup() {
+        Constant.WEBDRIVER.switchToAlert().accept();
     }
 }
