@@ -1,5 +1,6 @@
 package Common.Constant;
 
+import Common.Common.Utilities;
 import Common.WebDriverManager.WebDriverManager;
 
 public class Constant {
@@ -49,6 +50,7 @@ public class Constant {
 
     //Book ticket
     public static final int DATA_NUMBER_OF_DAYS_AFTER = 5;
+    public static final String DATA_DEPART_DATE = Utilities.plusDateFromToday(DATA_NUMBER_OF_DAYS_AFTER);
     public static final String DATA_DEPART_FROM = "Sài Gòn";
     public static final String DATA_ARRIVE_AT = "Nha Trang";
     public static final String DATA_SEAT_TYPE = "Soft bed with air conditioner";

@@ -2,7 +2,9 @@ package Testcases.Railway;
 
 import Common.Common.Utilities;
 import Common.Constant.Constant;
+import Model.Account;
 import PageObjects.Railway.RegisterPage;
+import org.checkerframework.checker.units.qual.A;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -18,10 +20,8 @@ public class RegisterTest extends BaseTest {
 
     @Test(description = "TC07 - User can log into Railway with valid username and password")
     public void TC07() {
-        registerPage.register(Utilities.randomEmail()
-                , Constant.DATA_REGISTER_PASSWORD
-                , Constant.DATA_REGISTER_CONFIRM_PASSWORD
-                , Constant.DATA_REGISTER_PID);
+        Account account = new Account();
+        registerPage.register(account);
 
         Assert.assertTrue(Utilities.isPageOpened(Constant.REGISTRATION_CONFIRM), "Register failed");
 
@@ -32,17 +32,12 @@ public class RegisterTest extends BaseTest {
 
     @Test(description = "TC10 - User can't create account with an already in-use email")
     public void TC10() {
-        String newEmail = Utilities.randomEmail();
-        registerPage.register(newEmail
-                , Constant.DATA_REGISTER_PASSWORD
-                , Constant.DATA_REGISTER_CONFIRM_PASSWORD
-                , Constant.DATA_REGISTER_PID);
+        Account account = new Account();
+
+        registerPage.register(account);
 
         homePage.gotoRegisterPage();
-        registerPage.register(newEmail
-                , Constant.DATA_REGISTER_PASSWORD
-                , Constant.DATA_REGISTER_CONFIRM_PASSWORD
-                , Constant.DATA_REGISTER_PID);
+        registerPage.register(account);
 
         String actualMsg = registerPage.getRegisterErrorMsg();
         String expectedMsg = Constant.MSG_IN_USED_EMAIL;
@@ -51,10 +46,8 @@ public class RegisterTest extends BaseTest {
 
     @Test(description = "TC11 - User can't create account while password and PID fields are empty")
     public void TC11() {
-        registerPage.register(Utilities.randomEmail()
-                , Constant.DATA_EMPTY_PASSWORD
-                , Constant.DATA_EMPTY_CONFIRM_PASSWORD
-                , Constant.DATA_EMPTY_PID);
+        Account account = new Account(Utilities.randomEmail(), Constant.DATA_EMPTY_PASSWORD, Constant.DATA_EMPTY_CONFIRM_PASSWORD, Constant.DATA_EMPTY_PID);
+        registerPage.register(account);
 
         String actualRegisterMsg = registerPage.getRegisterErrorMsg();
         String expectedRegisterMsg = Constant.MSG_REGISTER_ERROR;

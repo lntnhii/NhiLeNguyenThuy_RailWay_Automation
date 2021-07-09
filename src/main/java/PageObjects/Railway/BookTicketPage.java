@@ -2,12 +2,9 @@ package PageObjects.Railway;
 
 import Common.Common.Utilities;
 import Common.Constant.Constant;
+import Model.Ticket;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
 
 public class BookTicketPage extends GeneralPage {
     //Locators
@@ -80,29 +77,19 @@ public class BookTicketPage extends GeneralPage {
     }
 
     //Methods
-    public void bookTicket(String departDate, String departFrom, String arriveAt, String seatType, String ticketAmount) {
+    public void bookTicket(Ticket ticket, String ticketAmount) {
         Constant.WEBDRIVER.scrollIntoView(getBtnBookTicket());
 
-        Utilities.selectCombobox(getCbbDepartDate(), departDate);
-        Utilities.selectCombobox(getCbbDepartFrom(), departFrom);
-        Utilities.selectCombobox(getCbbArriveAt(), arriveAt);
-        Utilities.selectCombobox(getCbbSeatType(), seatType);
+        Utilities.selectCombobox(getCbbDepartDate(), ticket.getDepartDate());
+        Utilities.selectCombobox(getCbbDepartFrom(), ticket.getDepartFrom());
+        Utilities.selectCombobox(getCbbArriveAt(), ticket.getArriveAt());
+        Utilities.selectCombobox(getCbbSeatType(), ticket.getSeatType());
         Utilities.selectCombobox(getCbbTicketAmount(), ticketAmount);
         this.getBtnBookTicket().click();
     }
 
     public String getBookedMsg() {
         return this.getLblBookedMsg().getText();
-    }
-
-    public String setDepartDate(int numberOfDaysAfter) {
-        SimpleDateFormat dateFormat = new SimpleDateFormat("M/d/yyyy");
-        Date dt = new Date();
-        Calendar c = Calendar.getInstance();
-        c.setTime(dt);
-        c.add(Calendar.DATE, numberOfDaysAfter);
-        dt = c.getTime();
-        return dateFormat.format(dt);
     }
 
     public String getDepartDate() {

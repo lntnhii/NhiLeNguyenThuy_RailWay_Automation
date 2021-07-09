@@ -1,6 +1,7 @@
 package PageObjects.Railway;
 
 import Common.Constant.Constant;
+import Model.Account;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
@@ -54,11 +55,11 @@ public class RegisterPage extends GeneralPage {
     }
 
     //Methods
-    public void register(String email, String password, String confirmPassword, String pid) {
-        this.getTxtEmail().sendKeys(email);
-        this.getTxtPassword().sendKeys(password);
-        this.getTxtConfirmPassword().sendKeys(confirmPassword);
-        this.getTxtPID().sendKeys(pid);
+    public void register(Account account) {
+        this.getTxtEmail().sendKeys(account.getEmail());
+        this.getTxtPassword().sendKeys(account.getPassword());
+        this.getTxtConfirmPassword().sendKeys(account.getConfirmPassword());
+        this.getTxtPID().sendKeys(account.getPid());
 
         Constant.WEBDRIVER.scrollIntoView(getBtnRegister());
         this.getBtnRegister().click();

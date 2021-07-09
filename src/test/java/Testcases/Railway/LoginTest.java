@@ -2,6 +2,7 @@ package Testcases.Railway;
 
 import Common.Common.Utilities;
 import Common.Constant.Constant;
+import Model.Account;
 import PageObjects.Railway.RegisterPage;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
@@ -63,17 +64,14 @@ public class LoginTest extends BaseTest {
     @Test(description = "TC08 - User can't login with an account hasn't been activated")
     public void TC08() {
         loginPage.gotoRegisterPage();
-        String newEmail = Utilities.randomEmail();
 
+        Account account = new Account();
         RegisterPage registerPage = new RegisterPage();
-        registerPage.register(newEmail
-                , Constant.DATA_REGISTER_PASSWORD
-                , Constant.DATA_REGISTER_CONFIRM_PASSWORD
-                , Constant.DATA_REGISTER_PID);
+        registerPage.register(account);
 
         registerPage.gotoLoginPage();
 
-        loginPage.login(newEmail, Constant.DATA_REGISTER_PASSWORD);
+        loginPage.login(account.getEmail(), Constant.DATA_REGISTER_PASSWORD);
 
         Assert.assertTrue(Utilities.isPageOpened(Constant.LOGIN), "User can still login with unactivated account");
 

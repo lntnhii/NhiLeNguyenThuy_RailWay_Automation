@@ -2,6 +2,7 @@ package Testcases.Railway;
 
 import Common.Common.Utilities;
 import Common.Constant.Constant;
+import Model.Ticket;
 import PageObjects.Railway.BookTicketPage;
 import PageObjects.Railway.MyTicketPage;
 import PageObjects.Railway.TicketPricePage;
@@ -46,19 +47,15 @@ public class BookTicketTest extends BaseTest {
         loginPage.login(Constant.USERNAME, Constant.PASSWORD);
         homePage.gotoBookTicketPage();
 
-        String departDate = bookTicketPage.setDepartDate(Constant.DATA_NUMBER_OF_DAYS_AFTER);
-        bookTicketPage.bookTicket(departDate
-                , Constant.DATA_DEPART_FROM
-                , Constant.DATA_ARRIVE_AT
-                , Constant.DATA_SEAT_TYPE
-                , Constant.DATA_TICKET_AMOUNT);
+        Ticket ticket = new Ticket();
+        bookTicketPage.bookTicket(ticket, Constant.DATA_TICKET_AMOUNT);
 
         String actualMsg = bookTicketPage.getBookedMsg();
         String expectedMsg = Constant.MSG_BOOKED_SUCCESSFULLY;
         Assert.assertEquals(actualMsg,expectedMsg,"Booked tickets successfully message is not displayed correctly.");
 
         String actualDepartDate = bookTicketPage.getDepartDate();
-        String expectedDepartDate = departDate;
+        String expectedDepartDate = Constant.DATA_DEPART_DATE;
         Assert.assertEquals(actualDepartDate,expectedDepartDate,"Depart date is not displayed correctly.");
 
         String actualDepartFrom = bookTicketPage.getDepartFrom();
@@ -125,11 +122,8 @@ public class BookTicketTest extends BaseTest {
         loginPage.login(Constant.USERNAME, Constant.PASSWORD);
         homePage.gotoBookTicketPage();
 
-        bookTicketPage.bookTicket(bookTicketPage.setDepartDate(Constant.DATA_NUMBER_OF_DAYS_AFTER)
-                , Constant.DATA_DEPART_FROM
-                , Constant.DATA_ARRIVE_AT
-                , Constant.DATA_SEAT_TYPE
-                , Constant.DATA_TICKET_AMOUNT);
+        Ticket ticket = new Ticket();
+        bookTicketPage.bookTicket(ticket, Constant.DATA_TICKET_AMOUNT);
 
         bookTicketPage.gotoMyTicketPage();
 

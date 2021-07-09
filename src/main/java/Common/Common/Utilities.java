@@ -5,6 +5,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.Random;
 
 public class Utilities {
@@ -31,12 +34,21 @@ public class Utilities {
         return "lntnhii" + randomString() + "@gmail.com";
     }
 
+    public static String plusDateFromToday(int numberOfDaysAfter) {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("M/d/yyyy");
+        Date dt = new Date();
+        Calendar c = Calendar.getInstance();
+        c.setTime(dt);
+        c.add(Calendar.DATE, numberOfDaysAfter);
+        dt = c.getTime();
+        return dateFormat.format(dt);
+    }
+
     public static boolean isElementDisplayed(WebElement element) {
         try {
             boolean res = element.isDisplayed();
             return res;
-        }
-        catch (NullPointerException ex){
+        } catch (NullPointerException ex) {
             return false;
         }
     }

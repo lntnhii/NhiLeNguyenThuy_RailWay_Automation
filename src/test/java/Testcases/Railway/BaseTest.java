@@ -12,14 +12,14 @@ public class BaseTest {
     protected HomePage homePage = new HomePage();
     LoginPage loginPage = new LoginPage();
 
-    @BeforeClass
+    @BeforeClass(alwaysRun = true)
     public void beforeClass() {
         System.setProperty("webdriver.chrome.driver", Utilities.getProjectPath());
         Constant.WEBDRIVER = WebDriverManager.getInstance();
         Constant.WEBDRIVER.maximize();
     }
 
-    @AfterClass
+    @AfterClass(alwaysRun = true)
     public void afterClass() {
         Constant.WEBDRIVER.quit();
     }
