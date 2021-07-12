@@ -12,11 +12,11 @@ public class ForgotPasswordPage extends GeneralPage {
     private final By frmChangePassword = By.xpath("//form[contains(.,'Password Reset')]");
 
     //Elements
-    public WebElement getTxtEmail() {
+    public WebElement getEmailElement() {
         return Constant.WEBDRIVER.findElement(txtEmail);
     }
 
-    public WebElement getBtnSendInstructions() {
+    public WebElement getSendInstructionsElement() {
         return Constant.WEBDRIVER.findElement(btnSendInstructions);
     }
 
@@ -26,8 +26,8 @@ public class ForgotPasswordPage extends GeneralPage {
 
     //Methods
     public void requestResetPassword(String email) {
-        this.getTxtEmail().sendKeys(email);
-        this.getBtnSendInstructions().click();
+        this.getEmailElement().sendKeys(email);
+        this.getSendInstructionsElement().click();
     }
 
     //Methods support checkpoint

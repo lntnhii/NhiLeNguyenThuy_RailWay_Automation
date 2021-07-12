@@ -9,11 +9,11 @@ import org.openqa.selenium.WebElement;
 public class BookTicketPage extends GeneralPage {
     //Locators
     private final By formBookTicket = By.xpath("//form[contains(.,'Book ticket form')]");
-    private final By cbbDepartDate = By.xpath("//select[@name='Date']");
-    private final By cbbDepartFrom = By.xpath("//select[@name='DepartStation']");
-    private final By cbbArriveAt = By.xpath("//select[@name='ArriveStation']");
-    private final By cbbSeatType = By.xpath("//select[@name='SeatType']");
-    private final By cbbTicketAmount = By.xpath("//select[@name='TicketAmount']");
+    private final By cbbDepartDate = By.name("Date");
+    private final By cbbDepartFrom = By.name("DepartStation");
+    private final By cbbArriveAt = By.name("ArriveStation");
+    private final By cbbSeatType = By.name("SeatType");
+    private final By cbbTicketAmount = By.name("TicketAmount");
     private final By btnBookTicket = By.xpath("//input[@value='Book ticket']");
 
     private final By lblBookedMsg = By.cssSelector("h1");
@@ -28,31 +28,31 @@ public class BookTicketPage extends GeneralPage {
         return Constant.WEBDRIVER.findElement(formBookTicket);
     }
 
-    public WebElement getCbbDepartDate() {
+    public WebElement getDepartDateElement() {
         return Constant.WEBDRIVER.findElement(cbbDepartDate);
     }
 
-    public WebElement getCbbDepartFrom() {
+    public WebElement getDepartFromElement() {
         return Constant.WEBDRIVER.findElement(cbbDepartFrom);
     }
 
-    public WebElement getCbbArriveAt() {
+    public WebElement getArriveAtElement() {
         return Constant.WEBDRIVER.findElement(cbbArriveAt);
     }
 
-    public WebElement getCbbSeatType() {
+    public WebElement getSeatTypeElement() {
         return Constant.WEBDRIVER.findElement(cbbSeatType);
     }
 
-    public WebElement getCbbTicketAmount() {
+    public WebElement getTicketAmountElement() {
         return Constant.WEBDRIVER.findElement(cbbTicketAmount);
     }
 
-    public WebElement getBtnBookTicket() {
+    public WebElement getBookTicketElement() {
         return Constant.WEBDRIVER.findElement(btnBookTicket);
     }
 
-    public WebElement getLblBookedMsg() {
+    public WebElement getBookedMsgElement() {
         return Constant.WEBDRIVER.findElement(lblBookedMsg);
     }
 
@@ -78,18 +78,18 @@ public class BookTicketPage extends GeneralPage {
 
     //Methods
     public void bookTicket(Ticket ticket, String ticketAmount) {
-        Constant.WEBDRIVER.scrollIntoView(getBtnBookTicket());
+        Constant.WEBDRIVER.scrollIntoView(getBookTicketElement());
 
-        Utilities.selectCombobox(getCbbDepartDate(), ticket.getDepartDate());
-        Utilities.selectCombobox(getCbbDepartFrom(), ticket.getDepartFrom());
-        Utilities.selectCombobox(getCbbArriveAt(), ticket.getArriveAt());
-        Utilities.selectCombobox(getCbbSeatType(), ticket.getSeatType());
-        Utilities.selectCombobox(getCbbTicketAmount(), ticketAmount);
-        this.getBtnBookTicket().click();
+        Utilities.selectCombobox(getDepartDateElement(), ticket.getDepartDate());
+        Utilities.selectCombobox(getDepartFromElement(), ticket.getDepartFrom());
+        Utilities.selectCombobox(getArriveAtElement(), ticket.getArriveAt());
+        Utilities.selectCombobox(getSeatTypeElement(), ticket.getSeatType());
+        Utilities.selectCombobox(getTicketAmountElement(), ticketAmount);
+        this.getBookTicketElement().click();
     }
 
     public String getBookedMsg() {
-        return this.getLblBookedMsg().getText();
+        return this.getBookedMsgElement().getText();
     }
 
     public String getDepartDate() {

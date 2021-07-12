@@ -13,37 +13,37 @@ public class LoginPage extends GeneralPage {
     private final By linkForgotPassword = By.xpath("//a[contains(.,'Forgot Password')]");
 
     //Elements
-    public WebElement getTxtUsername() {
+    public WebElement getUsernameElement() {
         return Constant.WEBDRIVER.findElement(txtUsername);
     }
 
-    public WebElement getTxtPassword() {
+    public WebElement getPasswordElement() {
         return Constant.WEBDRIVER.findElement(txtPassword);
     }
 
-    public WebElement getBtnLogin() {
+    public WebElement getLoginElement() {
         return Constant.WEBDRIVER.findElement(btnLogin);
     }
 
-    public WebElement getLblLoginErrorMsg() {
+    public WebElement getLoginErrorMsgElement() {
         return Constant.WEBDRIVER.findElement(lblLoginErrorMsg);
     }
 
-    public WebElement getLinkForgotPassword() {
+    public WebElement getForgotPasswordElement() {
         return Constant.WEBDRIVER.findElement(linkForgotPassword);
     }
 
     //Methods
     public String getLoginErrorMessage() {
-        return getLblLoginErrorMsg().getText();
+        return getLoginErrorMsgElement().getText();
     }
 
     public void login(String username, String password) {
-        this.getTxtUsername().sendKeys(username);
-        this.getTxtPassword().sendKeys(password);
+        this.getUsernameElement().sendKeys(username);
+        this.getPasswordElement().sendKeys(password);
 
-        Constant.WEBDRIVER.scrollIntoView(getBtnLogin());
-        this.getBtnLogin().click();
+        Constant.WEBDRIVER.scrollIntoView(getLoginElement());
+        this.getLoginElement().click();
     }
 
     public void loginSeveralTimes(String username, String password, int times) {
@@ -53,7 +53,7 @@ public class LoginPage extends GeneralPage {
     }
 
     public void gotoForgetPasswordPage() {
-        this.getLinkForgotPassword().click();
+        this.getForgotPasswordElement().click();
     }
 
     //Methods support checkpoint

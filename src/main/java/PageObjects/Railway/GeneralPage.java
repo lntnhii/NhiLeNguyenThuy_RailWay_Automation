@@ -2,8 +2,10 @@ package PageObjects.Railway;
 
 import Common.Common.Utilities;
 import Common.Constant.Constant;
+import Common.WebDriverManager.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 
 public class GeneralPage {
     //Locators
@@ -50,13 +52,13 @@ public class GeneralPage {
         return Constant.WEBDRIVER.findElement(tabMyTicket);
     }
 
-    protected WebElement getLblWelcomeUser() {
+    protected WebElement getWelcomeUserElement() {
         return Constant.WEBDRIVER.findElement(lblWelcomeUser);
     }
 
     //Methods
     public String getWelcomeUser() {
-        return this.getLblWelcomeUser().getText();
+        return this.getWelcomeUserElement().getText();
     }
 
     public void gotoLoginPage() {

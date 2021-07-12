@@ -2,14 +2,15 @@ package Testcases.Railway;
 
 import Common.Common.Utilities;
 import Common.Constant.Constant;
+import Common.WebDriverManager.WebDriverManager;
 import Model.Account;
+import PageObjects.Railway.HomePage;
+import PageObjects.Railway.LoginPage;
 import PageObjects.Railway.RegisterPage;
 import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
-public class LoginTest extends BaseTest {
+public class LoginTest extends BaseTest{
     @BeforeMethod
     public void beforeMethod() {
         homePage.open();

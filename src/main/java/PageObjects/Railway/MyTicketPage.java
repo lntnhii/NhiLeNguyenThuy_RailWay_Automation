@@ -10,7 +10,7 @@ public class MyTicketPage extends GeneralPage {
     private By btnCancel = null;
 
     //Elements
-    public WebElement getBtnCancel() {
+    public WebElement getCancelElement() {
         return Constant.WEBDRIVER.findElement(btnCancel);
     }
 
@@ -20,14 +20,14 @@ public class MyTicketPage extends GeneralPage {
                 = String.format("//table[@class='MyTable']//td[1][.='%s']//following-sibling::td//input[@value='Cancel']", numberOfRow);
         btnCancel = By.xpath(xpathLink);
 
-        Constant.WEBDRIVER.scrollIntoView(getBtnCancel());
+        Constant.WEBDRIVER.scrollIntoView(getCancelElement());
         Constant.DATA_CANCEL_ID = getTicketCancelId();
-        getBtnCancel().click();
+        getCancelElement().click();
         Utilities.confirmPopup();
     }
 
     public String getTicketCancelId() {
-        return getBtnCancel().getAttribute("onclick");
+        return getCancelElement().getAttribute("onclick");
     }
 
     //Methods support checkpoint

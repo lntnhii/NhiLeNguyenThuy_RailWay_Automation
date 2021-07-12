@@ -10,7 +10,7 @@ public class RegisterPage extends GeneralPage {
     private final By txtEmail = By.id("email");
     private final By txtPassword = By.id("password");
     private final By txtConfirmPassword = By.id("confirmPassword");
-    private final By txtPID = By.id("pid");
+    private final By txtPid = By.id("pid");
     private final By btnRegister = By.xpath("//input[@value='Register']");
     private final By lblRegisterMsg = By.xpath("//div[@id='content']//p");
     private final By lblRegisterErrorMsg = By.xpath("//p[@class='message error']");
@@ -18,67 +18,67 @@ public class RegisterPage extends GeneralPage {
     private final By lblPidErrorMsg = By.xpath("//label[@for='pid' and @class='validation-error']");
 
     //Elements
-    public WebElement getTxtEmail() {
+    public WebElement getEmailElement() {
         return Constant.WEBDRIVER.findElement(txtEmail);
     }
 
-    public WebElement getTxtPassword() {
+    public WebElement getPasswordElement() {
         return Constant.WEBDRIVER.findElement(txtPassword);
     }
 
-    public WebElement getTxtConfirmPassword() {
+    public WebElement getConfirmPasswordElement() {
         return Constant.WEBDRIVER.findElement(txtConfirmPassword);
     }
 
-    public WebElement getTxtPID() {
-        return Constant.WEBDRIVER.findElement(txtPID);
+    public WebElement getPidElement() {
+        return Constant.WEBDRIVER.findElement(txtPid);
     }
 
-    public WebElement getBtnRegister() {
+    public WebElement getRegisterElement() {
         return Constant.WEBDRIVER.findElement(btnRegister);
     }
 
-    public WebElement getLblRegisterMsg() {
+    public WebElement getRegisterMsgElement() {
         return Constant.WEBDRIVER.findElement(lblRegisterMsg);
     }
 
-    public WebElement getLblRegisterErrorMsg() {
+    public WebElement getRegisterErrorMsgElement() {
         return Constant.WEBDRIVER.findElement(lblRegisterErrorMsg);
     }
 
-    public WebElement getLblPasswordErrorMsg() {
+    public WebElement getPasswordErrorMsgElement() {
         return Constant.WEBDRIVER.findElement(lblPasswordErrorMsg);
     }
 
-    public WebElement getLblPidErrorMsg() {
+    public WebElement getPidErrorMsgElement() {
         return Constant.WEBDRIVER.findElement(lblPidErrorMsg);
     }
 
     //Methods
     public void register(Account account) {
-        this.getTxtEmail().sendKeys(account.getEmail());
-        this.getTxtPassword().sendKeys(account.getPassword());
-        this.getTxtConfirmPassword().sendKeys(account.getConfirmPassword());
-        this.getTxtPID().sendKeys(account.getPid());
+        this.getEmailElement().sendKeys(account.getEmail());
+        this.getPasswordElement().sendKeys(account.getPassword());
+        this.getConfirmPasswordElement().sendKeys(account.getConfirmPassword());
+        this.getPidElement().sendKeys(account.getPid());
 
-        Constant.WEBDRIVER.scrollIntoView(getBtnRegister());
-        this.getBtnRegister().click();
+        Constant.WEBDRIVER.scrollIntoView(getRegisterElement());
+        this.getRegisterElement().click();
     }
 
     public String getRegisterMsg() {
-        return this.getLblRegisterMsg().getText();
+        return this.getRegisterMsgElement().getText();
     }
 
     public String getRegisterErrorMsg() {
-        return this.getLblRegisterErrorMsg().getText();
+        return this.getRegisterErrorMsgElement().getText();
     }
 
     public String getPasswordErrorMsg() {
-        return this.getLblPasswordErrorMsg().getText();
+        return this.getPasswordErrorMsgElement().getText();
     }
 
     public String getPidErrorMsg() {
-        return this.getLblPidErrorMsg().getText();
+        return this.getPidErrorMsgElement().getText();
     }
 
     //Methods support checkpoint

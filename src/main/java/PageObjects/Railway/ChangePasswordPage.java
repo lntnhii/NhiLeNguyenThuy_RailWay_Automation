@@ -13,36 +13,36 @@ public class ChangePasswordPage extends GeneralPage {
     private final By lblConfirmPasswordError = By.xpath("//label[@for='confirmPassword' and @class='validation-error']");
 
     //Elements
-    public WebElement getTxtCurrentPassword() {
+    public WebElement getCurrentPasswordElement() {
         return Constant.WEBDRIVER.findElement(txtCurrentPassword);
     }
 
-    public WebElement getTxtNewPassword() {
+    public WebElement getNewPasswordElement() {
         return Constant.WEBDRIVER.findElement(txtNewPassword);
     }
 
-    public WebElement getTxtConfirmPassword() {
+    public WebElement getConfirmPasswordElement() {
         return Constant.WEBDRIVER.findElement(txtConfirmPassword);
     }
 
-    public WebElement getBtnChangePassword() {
+    public WebElement getChangePasswordElement() {
         return Constant.WEBDRIVER.findElement(btnChangePassword);
     }
 
-    public WebElement getLblConfirmPasswordError() {
+    public WebElement getConfirmPasswordErrorElement() {
         return Constant.WEBDRIVER.findElement(lblConfirmPasswordError);
     }
 
     //Methods
     public String getConfirmPasswordError() {
-        return getLblConfirmPasswordError().getText();
+        return getConfirmPasswordErrorElement().getText();
     }
 
     public void changePassword(String currentPassword, String newPassword, String confirmPassword) {
-        this.getTxtCurrentPassword().sendKeys(currentPassword);
-        this.getTxtNewPassword().sendKeys(newPassword);
-        this.getTxtConfirmPassword().sendKeys(confirmPassword);
-        this.getBtnChangePassword().click();
+        this.getCurrentPasswordElement().sendKeys(currentPassword);
+        this.getNewPasswordElement().sendKeys(newPassword);
+        this.getConfirmPasswordElement().sendKeys(confirmPassword);
+        this.getChangePasswordElement().click();
     }
 
     //Methods support checkpoint
