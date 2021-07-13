@@ -4,7 +4,6 @@ import Common.Common.Utilities;
 import Common.Constant.Constant;
 import Model.Account;
 import PageObjects.Railway.RegisterPage;
-import org.checkerframework.checker.units.qual.A;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -33,9 +32,9 @@ public class RegisterTest extends BaseTest {
     @Test(description = "TC10 - User can't create account with an already in-use email")
     public void TC10() {
         Account account = new Account();
-
         registerPage.register(account);
 
+        //Create account with the same email
         homePage.gotoRegisterPage();
         registerPage.register(account);
 

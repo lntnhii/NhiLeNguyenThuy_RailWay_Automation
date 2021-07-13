@@ -2,13 +2,12 @@ package Testcases.Railway;
 
 import Common.Common.Utilities;
 import Common.Constant.Constant;
-import Common.WebDriverManager.WebDriverManager;
 import Model.Account;
-import PageObjects.Railway.HomePage;
-import PageObjects.Railway.LoginPage;
 import PageObjects.Railway.RegisterPage;
 import org.testng.Assert;
-import org.testng.annotations.*;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
 
 public class LoginTest extends BaseTest{
     @BeforeMethod
@@ -65,13 +64,11 @@ public class LoginTest extends BaseTest{
     @Test(description = "TC08 - User can't login with an account hasn't been activated")
     public void TC08() {
         loginPage.gotoRegisterPage();
-
         Account account = new Account();
         RegisterPage registerPage = new RegisterPage();
         registerPage.register(account);
 
         registerPage.gotoLoginPage();
-
         loginPage.login(account.getEmail(), Constant.DATA_REGISTER_PASSWORD);
 
         Assert.assertTrue(Utilities.isPageOpened(Constant.LOGIN), "User can still login with unactivated account");

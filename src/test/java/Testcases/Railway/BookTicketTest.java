@@ -43,10 +43,9 @@ public class BookTicketTest extends BaseTest {
     @Test(description = "TC14 - User can book 1 ticket at a time")
     public void TC14() {
         homePage.gotoLoginPage();
-
         loginPage.login(Constant.USERNAME, Constant.PASSWORD);
-        homePage.gotoBookTicketPage();
 
+        homePage.gotoBookTicketPage();
         Ticket ticket = new Ticket();
         bookTicketPage.bookTicket(ticket, Constant.DATA_TICKET_AMOUNT);
 
@@ -118,16 +117,15 @@ public class BookTicketTest extends BaseTest {
     @Test(description = "TC16 - User can cancel a ticket")
     public void TC16() {
         homePage.gotoLoginPage();
-
         loginPage.login(Constant.USERNAME, Constant.PASSWORD);
-        homePage.gotoBookTicketPage();
 
+        homePage.gotoBookTicketPage();
         Ticket ticket = new Ticket();
         bookTicketPage.bookTicket(ticket, Constant.DATA_TICKET_AMOUNT);
 
         bookTicketPage.gotoMyTicketPage();
-
         myTicketPage.cancelTicket(Constant.DATA_CANCEL_ROW);
+
         Assert.assertTrue(!myTicketPage.isTicketExist(Constant.DATA_CANCEL_ID), "Ticket still exist after cancel");
     }
 }

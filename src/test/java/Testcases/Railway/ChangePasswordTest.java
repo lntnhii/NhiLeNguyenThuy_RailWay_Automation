@@ -1,11 +1,7 @@
 package Testcases.Railway;
 
-import Common.Common.Utilities;
 import Common.Constant.Constant;
-import Common.WebDriverManager.WebDriverManager;
 import PageObjects.Railway.ChangePasswordPage;
-import PageObjects.Railway.HomePage;
-import PageObjects.Railway.LoginPage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -23,7 +19,6 @@ public class ChangePasswordTest extends BaseTest {
 
         String actualMsg = changePasswordPage.getConfirmPasswordError();
         String expectedMsg = Constant.MSG_CONFIRM_PASSWORD_ERROR;
-
         Assert.assertEquals(actualMsg, expectedMsg, "Error message is not displayed correctly");
     }
 }

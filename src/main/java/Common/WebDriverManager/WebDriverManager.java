@@ -6,17 +6,10 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 public class WebDriverManager {
     ChromeDriver driver;
-    //private static WebDriverManager instance = null;
 
     public WebDriverManager() {
         driver = new ChromeDriver();
     }
-
-    /*public static WebDriverManager getInstance() {
-        if (instance == null)
-            instance = new WebDriverManager();
-        return instance;
-    }*/
 
     public void maximize() {
         driver.manage().window().maximize();
@@ -40,7 +33,6 @@ public class WebDriverManager {
 
     public void quit() {
         driver.quit();
-        //instance = null;
     }
 
     public String getTitle() {
@@ -48,7 +40,7 @@ public class WebDriverManager {
     }
 
     public void scrollIntoView(WebElement element) {
-        JavascriptExecutor js = (JavascriptExecutor) driver;
+        JavascriptExecutor js = driver;
         js.executeScript("arguments[0].scrollIntoView(true);", element);
     }
 
