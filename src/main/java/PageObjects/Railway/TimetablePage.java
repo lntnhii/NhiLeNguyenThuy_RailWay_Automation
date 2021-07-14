@@ -9,7 +9,7 @@ public class TimetablePage extends GeneralPage {
     private By linkCheckPrice = null;
 
     //Elements
-    public WebElement getLinkCheckPrice() {
+    protected WebElement getLinkCheckPrice() {
         return Constant.WEBDRIVER.findElement(linkCheckPrice);
     }
 

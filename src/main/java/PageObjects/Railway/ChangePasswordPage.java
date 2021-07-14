@@ -13,23 +13,23 @@ public class ChangePasswordPage extends GeneralPage {
     private final By lblConfirmPasswordError = By.xpath("//label[@for='confirmPassword' and @class='validation-error']");
 
     //Elements
-    public WebElement getCurrentPasswordElement() {
+    protected WebElement getCurrentPasswordElement() {
         return Constant.WEBDRIVER.findElement(txtCurrentPassword);
     }
 
-    public WebElement getNewPasswordElement() {
+    protected WebElement getNewPasswordElement() {
         return Constant.WEBDRIVER.findElement(txtNewPassword);
     }
 
-    public WebElement getConfirmPasswordElement() {
+    protected WebElement getConfirmPasswordElement() {
         return Constant.WEBDRIVER.findElement(txtConfirmPassword);
     }
 
-    public WebElement getChangePasswordElement() {
+    protected WebElement getChangePasswordElement() {
         return Constant.WEBDRIVER.findElement(btnChangePassword);
     }
 
-    public WebElement getConfirmPasswordErrorElement() {
+    protected WebElement getConfirmPasswordErrorElement() {
         return Constant.WEBDRIVER.findElement(lblConfirmPasswordError);
     }
 

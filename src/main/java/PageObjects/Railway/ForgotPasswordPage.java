@@ -12,15 +12,15 @@ public class ForgotPasswordPage extends GeneralPage {
     private final By frmChangePassword = By.xpath("//form[contains(.,'Password Reset')]");
 
     //Elements
-    public WebElement getEmailElement() {
+    protected WebElement getEmailElement() {
         return Constant.WEBDRIVER.findElement(txtEmail);
     }
 
-    public WebElement getSendInstructionsElement() {
+    protected WebElement getSendInstructionsElement() {
         return Constant.WEBDRIVER.findElement(btnSendInstructions);
     }
 
-    public WebElement getFrmChangePassword() {
+    protected WebElement getFrmChangePassword() {
         return Constant.WEBDRIVER.findElement(frmChangePassword);
     }
 

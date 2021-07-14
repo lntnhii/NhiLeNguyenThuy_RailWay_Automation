@@ -13,23 +13,23 @@ public class LoginPage extends GeneralPage {
     private final By linkForgotPassword = By.xpath("//a[contains(.,'Forgot Password')]");
 
     //Elements
-    public WebElement getUsernameElement() {
+    protected WebElement getUsernameElement() {
         return Constant.WEBDRIVER.findElement(txtUsername);
     }
 
-    public WebElement getPasswordElement() {
+    protected WebElement getPasswordElement() {
         return Constant.WEBDRIVER.findElement(txtPassword);
     }
 
-    public WebElement getLoginElement() {
+    protected WebElement getLoginElement() {
         return Constant.WEBDRIVER.findElement(btnLogin);
     }
 
-    public WebElement getLoginErrorMsgElement() {
+    protected WebElement getLoginErrorMsgElement() {
         return Constant.WEBDRIVER.findElement(lblLoginErrorMsg);
     }
 
-    public WebElement getForgotPasswordElement() {
+    protected WebElement getForgotPasswordElement() {
         return Constant.WEBDRIVER.findElement(linkForgotPassword);
     }
 

@@ -18,39 +18,39 @@ public class RegisterPage extends GeneralPage {
     private final By lblPidErrorMsg = By.xpath("//label[@for='pid' and @class='validation-error']");
 
     //Elements
-    public WebElement getEmailElement() {
+    protected WebElement getEmailElement() {
         return Constant.WEBDRIVER.findElement(txtEmail);
     }
 
-    public WebElement getPasswordElement() {
+    protected WebElement getPasswordElement() {
         return Constant.WEBDRIVER.findElement(txtPassword);
     }
 
-    public WebElement getConfirmPasswordElement() {
+    protected WebElement getConfirmPasswordElement() {
         return Constant.WEBDRIVER.findElement(txtConfirmPassword);
     }
 
-    public WebElement getPidElement() {
+    protected WebElement getPidElement() {
         return Constant.WEBDRIVER.findElement(txtPid);
     }
 
-    public WebElement getRegisterElement() {
+    protected WebElement getRegisterElement() {
         return Constant.WEBDRIVER.findElement(btnRegister);
     }
 
-    public WebElement getRegisterMsgElement() {
+    protected WebElement getRegisterMsgElement() {
         return Constant.WEBDRIVER.findElement(lblRegisterMsg);
     }
 
-    public WebElement getRegisterErrorMsgElement() {
+    protected WebElement getRegisterErrorMsgElement() {
         return Constant.WEBDRIVER.findElement(lblRegisterErrorMsg);
     }
 
-    public WebElement getPasswordErrorMsgElement() {
+    protected WebElement getPasswordErrorMsgElement() {
         return Constant.WEBDRIVER.findElement(lblPasswordErrorMsg);
     }
 
-    public WebElement getPidErrorMsgElement() {
+    protected WebElement getPidErrorMsgElement() {
         return Constant.WEBDRIVER.findElement(lblPidErrorMsg);
     }
 

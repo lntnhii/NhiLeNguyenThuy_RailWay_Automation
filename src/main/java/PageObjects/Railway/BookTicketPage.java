@@ -24,55 +24,55 @@ public class BookTicketPage extends GeneralPage {
     private final By cellTicketAmount = By.xpath("//table[@class='MyTable WideTable']//td[7]");
 
     //Elements
-    public WebElement getFormBookTicket() {
+    protected WebElement getFormBookTicket() {
         return Constant.WEBDRIVER.findElement(formBookTicket);
     }
 
-    public WebElement getDepartDateElement() {
+    protected WebElement getDepartDateElement() {
         return Constant.WEBDRIVER.findElement(cbbDepartDate);
     }
 
-    public WebElement getDepartFromElement() {
+    protected WebElement getDepartFromElement() {
         return Constant.WEBDRIVER.findElement(cbbDepartFrom);
     }
 
-    public WebElement getArriveAtElement() {
+    protected WebElement getArriveAtElement() {
         return Constant.WEBDRIVER.findElement(cbbArriveAt);
     }
 
-    public WebElement getSeatTypeElement() {
+    protected WebElement getSeatTypeElement() {
         return Constant.WEBDRIVER.findElement(cbbSeatType);
     }
 
-    public WebElement getTicketAmountElement() {
+    protected WebElement getTicketAmountElement() {
         return Constant.WEBDRIVER.findElement(cbbTicketAmount);
     }
 
-    public WebElement getBookTicketElement() {
+    protected WebElement getBookTicketElement() {
         return Constant.WEBDRIVER.findElement(btnBookTicket);
     }
 
-    public WebElement getBookedMsgElement() {
+    protected WebElement getBookedMsgElement() {
         return Constant.WEBDRIVER.findElement(lblBookedMsg);
     }
 
-    public WebElement getCellDepartDate() {
+    protected WebElement getCellDepartDate() {
         return Constant.WEBDRIVER.findElement(cellDepartDate);
     }
 
-    public WebElement getCellDepartFrom() {
+    protected WebElement getCellDepartFrom() {
         return Constant.WEBDRIVER.findElement(cellDepartFrom);
     }
 
-    public WebElement getCellArriveAt() {
+    protected WebElement getCellArriveAt() {
         return Constant.WEBDRIVER.findElement(cellArriveAt);
     }
 
-    public WebElement getCellSeatType() {
+    protected WebElement getCellSeatType() {
         return Constant.WEBDRIVER.findElement(cellSeatType);
     }
 
-    public WebElement getCellTicketAmount() {
+    protected WebElement getCellTicketAmount() {
         return Constant.WEBDRIVER.findElement(cellTicketAmount);
     }
 

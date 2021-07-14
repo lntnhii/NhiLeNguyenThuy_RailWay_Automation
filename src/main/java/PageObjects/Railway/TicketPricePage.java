@@ -15,31 +15,31 @@ public class TicketPricePage extends GeneralPage {
     private final By cellSbc = By.xpath("//tr[contains(.,'Price')]//td[6]");
 
     //Elements
-    public WebElement getTableHeader() {
+    protected WebElement getTableHeader() {
         return Constant.WEBDRIVER.findElement(tableHeader);
     }
 
-    public WebElement getCellHs() {
+    protected WebElement getCellHs() {
         return Constant.WEBDRIVER.findElement(cellHs);
     }
 
-    public WebElement getCellSs() {
+    protected WebElement getCellSs() {
         return Constant.WEBDRIVER.findElement(cellSs);
     }
 
-    public WebElement getCellSsc() {
+    protected WebElement getCellSsc() {
         return Constant.WEBDRIVER.findElement(cellSsc);
     }
 
-    public WebElement getCellHb() {
+    protected WebElement getCellHb() {
         return Constant.WEBDRIVER.findElement(cellHb);
     }
 
-    public WebElement getCellSb() {
+    protected WebElement getCellSb() {
         return Constant.WEBDRIVER.findElement(cellSb);
     }
 
-    public WebElement getCellSbc() {
+    protected WebElement getCellSbc() {
         return Constant.WEBDRIVER.findElement(cellSbc);
     }
 

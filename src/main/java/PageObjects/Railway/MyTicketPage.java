@@ -10,7 +10,7 @@ public class MyTicketPage extends GeneralPage {
     private By btnCancel = null;
 
     //Elements
-    public WebElement getCancelElement() {
+    protected WebElement getCancelElement() {
         return Constant.WEBDRIVER.findElement(btnCancel);
     }
 
