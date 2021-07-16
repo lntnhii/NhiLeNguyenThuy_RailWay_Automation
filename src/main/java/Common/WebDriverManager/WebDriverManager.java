@@ -4,6 +4,8 @@ import Common.Constant.Constant;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import java.util.List;
+
 public class WebDriverManager {
     ChromeDriver driver;
 
@@ -29,6 +31,18 @@ public class WebDriverManager {
             System.out.println(ex.getMessage());
         }
         return element;
+    }
+
+    public List<WebElement> findElements(By locator) {
+        List<WebElement> elements = null;
+        try {
+            elements = driver.findElements(locator);
+        } catch (NoSuchElementException ex) {
+            System.out.println(ex.getMessage());
+        } catch (StaleElementReferenceException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return elements;
     }
 
     public void quit() {

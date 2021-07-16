@@ -73,4 +73,14 @@ public class Constant {
     //My ticket
     public static final String DATA_CANCEL_ROW = "1";
     public static String DATA_CANCEL_ID;
+
+    //Final Test
+    public static final String DATA_FINAL_DEPART_DATE = Utilities.plusDateFromToday(DATA_NUMBER_OF_DAYS_AFTER);
+    public static final String DATA_FINAL_DEPART_FROM = "Nha Trang";
+    public static final String DATA_FINAL_ARRIVE_AT = "Huế";
+    public static final String DATA_FINAL_SEAT_TYPE = "Soft seat";
+    public static final String DATA_FINAL_TICKET_AMOUNT = "2";
+    public static final int DATA_BOOKED_TICKET_TIMES = 7;
+    public static final String MSG_ERROR_CANCEL = "Sorry, can't find any results that match your filters.\nPlease change the filters and try again.";
+    public static final String MSG_NOTE_CANCEL = "You currently book 0 ticket, you can book 10 more.";
 }

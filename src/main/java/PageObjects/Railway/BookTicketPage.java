@@ -80,11 +80,25 @@ public class BookTicketPage extends GeneralPage {
     public void bookTicket(Ticket ticket, String ticketAmount) {
         Constant.WEBDRIVER.scrollIntoView(getBookTicketElement());
 
-        Utilities.selectCombobox(getDepartDateElement(), ticket.getDepartDate());
-        Utilities.selectCombobox(getDepartFromElement(), ticket.getDepartFrom());
-        Utilities.selectCombobox(getArriveAtElement(), ticket.getArriveAt());
-        Utilities.selectCombobox(getSeatTypeElement(), ticket.getSeatType());
-        Utilities.selectCombobox(getTicketAmountElement(), ticketAmount);
+        if (ticket != null) {
+            if (!ticket.getDepartDate().isEmpty())
+                Utilities.selectCombobox(getDepartDateElement(), ticket.getDepartDate());
+            if (!ticket.getDepartFrom().isEmpty())
+                Utilities.selectCombobox(getDepartFromElement(), ticket.getDepartFrom());
+
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+            if (!ticket.getArriveAt().isEmpty())
+                Utilities.selectCombobox(getArriveAtElement(), ticket.getArriveAt());
+            if (!ticket.getSeatType().isEmpty())
+                Utilities.selectCombobox(getSeatTypeElement(), ticket.getSeatType());
+        }
+        if (!ticketAmount.isEmpty())
+            Utilities.selectCombobox(getTicketAmountElement(), ticketAmount);
         this.getBookTicketElement().click();
     }
 
@@ -112,8 +126,34 @@ public class BookTicketPage extends GeneralPage {
         return this.getCellTicketAmount().getText();
     }
 
+    public void bookTicketSeveralTimes(Ticket ticket, String amountTicketPerTime, int times) {
+        for (int i=0; i< times; i++) {
+            GeneralPage generalPage = new GeneralPage();
+            generalPage.gotoBookTicketPage();
+
+            ticket.setDepartDate(Utilities.plusDateFromToday(Constant.DATA_NUMBER_OF_DAYS_AFTER + i));
+            bookTicket(ticket, amountTicketPerTime);
+        }
+    }
+
     //Methods support checkpoint
     public boolean isBookTicketFormDisplayed() {
         return Utilities.isElementDisplayed(getFormBookTicket());
+    }
+
+    /*
+    * numberRowsSatisfyConditions stands for numbers of row which satisfy filter conditions before applying filter
+    * numberRowsFilterTable stands for total numbers of row of ticket table after filter
+    * numberRowsSatisfyConditionsFilterTable stands for numbers of row which satisfy filter conditions after applying filter
+    * */
+    public boolean isFilterCorrect(int numberRowsSatisfyConditions, int numberRowsFilterTable, int numberRowsSatisfyConditionsFilterTable) {
+        // Table after filter must display all of satisfying-conditions rows exist on table before filter
+        if (numberRowsSatisfyConditions != numberRowsFilterTable)
+            return false;
+
+        // All rows of filter table must be the satisfying-conditions row
+        if (numberRowsFilterTable != numberRowsSatisfyConditionsFilterTable)
+            return false;
+        return true;
     }
 }

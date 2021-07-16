@@ -7,6 +7,7 @@ import org.openqa.selenium.support.ui.Select;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 import java.util.Random;
 
 public class Utilities {
@@ -68,5 +69,10 @@ public class Utilities {
 
     public static void confirmPopup() {
         Constant.WEBDRIVER.switchToAlert().accept();
+    }
+
+    public static int countRowTable(By locator) {
+        List<WebElement> rows = Constant.WEBDRIVER.findElements(locator);
+        return rows.size();
     }
 }

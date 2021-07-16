@@ -73,5 +73,4 @@ public class TicketPricePage extends GeneralPage {
     public String getSbcPrice() {
         return getCellSbc().getText();
     }
-
 }

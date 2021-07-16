@@ -124,7 +124,7 @@ public class BookTicketTest extends BaseTest {
         bookTicketPage.bookTicket(ticket, Constant.DATA_TICKET_AMOUNT);
 
         bookTicketPage.gotoMyTicketPage();
-        myTicketPage.cancelTicket(Constant.DATA_CANCEL_ROW);
+        myTicketPage.cancelOneTicket(Constant.DATA_CANCEL_ROW);
 
         Assert.assertTrue(!myTicketPage.isTicketExist(Constant.DATA_CANCEL_ID), "Ticket still exist after cancel");
     }
